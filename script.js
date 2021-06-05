@@ -11,7 +11,10 @@ image1.addEventListener('load', function() {
   // can get passed up to 5 args:
   // img to show, startX, startY, width, height
   ctx.drawImage(image1, 0,0);
+
+  /*
   const scannedImage = ctx.getImageData(0,0, canvas.width, canvas.height);
+
   console.log(scannedImage);
   const scannedData = scannedImage.data;
   for ( let i = 0; i< scannedData.length; i+=4){
@@ -22,7 +25,30 @@ image1.addEventListener('load', function() {
     scannedData[i+2] = averageColorValue;
   };
   scannedImage.data = scannedData;
-  ctx.putImageData(scannedImage, 0,0);
+  ctx.putImageData(scannedImage, 0,0);*/
+
+  let particlesArray = [];
+  const numberOfParticles = 5000; 
+
+  class Particle {
+    constructor(){
+      // x and y starting points depend on the effect of your choice, here "falling rain"
+      this.x = Math.random() * canvas.width; 
+      this.y = 0;
+      this.speed = 0;
+      this.velocity = Math.random() * 3.5;
+      this.size = Math.random() * 1.5 + 1;
+    }
+    update(){
+      this.y+= this.velocity;
+      if (this.y >= canvas.height){
+          this.y = 0;
+          this.x = Math.random() * canvas.width;
+      }
+    }
+    
+  }
+
 });
  
  
