@@ -41,7 +41,7 @@ image1.addEventListener('load', function() {
     )/100;
   }
   
-  /*
+  /* From pixel effect 1
   console.log(scannedImage);
   const scannedData = scannedImage.data;
   for ( let i = 0; i< scannedData.length; i+=4){
